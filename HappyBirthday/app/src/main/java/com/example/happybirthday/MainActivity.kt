@@ -36,9 +36,10 @@ fun GreetingText(message: String, modifier: Modifier=Modifier)
 {
     Text(//this is a text composable to show a text box
         text=message,
-        fontSize = 100.sp /* this is the font size it uses the scalable pixel unit
+        fontSize = 100.sp, /* this is the font size it uses the scalable pixel unit
         to account for different screen resoloutions and user font sizes*/
-
+        lineHeight = 116.sp /* this is the line height it is the same as font size + 16
+        so that it allows for enough space for text plus a little extra white space*/
 
     )
 
