@@ -44,5 +44,6 @@ fun GreetingText(message: String, modifier: Modifier=Modifier)
 fun CardPreview() {
     HappyBirthdayTheme {
         GreetingText(message = "Happy Birthday Miles!")
+
     }
 }
