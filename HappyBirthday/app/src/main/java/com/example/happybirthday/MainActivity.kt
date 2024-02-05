@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
 
 
 @Composable /*composable added to allow for composables like text to be added */
-fun GreetingText(message: String , modifier: Modifier = Modifier){
+fun GreetingText(message: String ,from: String,modifier: Modifier = Modifier){
 
     Text( /* added composable text function */
         text = message,
@@ -41,6 +41,10 @@ fun GreetingText(message: String , modifier: Modifier = Modifier){
         lineHeight = 116.sp, /* set to 116 so that it fills whole char size and leaves a bit
         of white space as well between lines */
     )
+    Text(
+        text=from
+    )
+
 
 }
 
@@ -48,6 +52,6 @@ fun GreetingText(message: String , modifier: Modifier = Modifier){
 @Composable
 fun GreetingPreview() {
     HappyBirthdayTheme {
-        GreetingText(message = "Happy Birthday Miles")
+        GreetingText(message = "Happy Birthday Miles", from = "leeds beckett")
     }
 }
