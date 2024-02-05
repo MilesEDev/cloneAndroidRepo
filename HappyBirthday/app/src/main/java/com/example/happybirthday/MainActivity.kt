@@ -32,12 +32,14 @@ class MainActivity : ComponentActivity() {
 
 
 @Composable /*composable added to allow for composables like text to be added */
-fun greetingText(message: String , modifier: Modifier = Modifier){
+fun GreetingText(message: String , modifier: Modifier = Modifier){
 
     Text( /* added composable text function */
         text = message,
-        fontSize = 100.sp /* sp here is scalable pixel means that it will work for different
+        fontSize = 100.sp, /* sp here is scalable pixel means that it will work for different
         screen resoloutions and user prefered font sizes*/
+        lineHeight = 116.sp, /* set to 116 so that it fills whole char size and leaves a bit
+        of white space as well between lines */
     )
 
 }
@@ -46,6 +48,6 @@ fun greetingText(message: String , modifier: Modifier = Modifier){
 @Composable
 fun GreetingPreview() {
     HappyBirthdayTheme {
-        greetingText(message = "Happy Birthday Miles")
+        GreetingText(message = "Happy Birthday Miles")
     }
 }
