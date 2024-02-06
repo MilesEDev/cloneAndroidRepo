@@ -6,6 +6,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -52,8 +53,9 @@ fun GreetingText(message: String ,from: String,modifier: Modifier = Modifier){
 
 
     Column(
-        verticalArrangement = Arrangement.Center,/*centers the columb on the page on the main axis
-        which for columb is the y axis as columbs go up to down */
+        verticalArrangement = Arrangement.Center,/*centers the columb on the vertical accsess
+        as it is changing the function parameter vertical arrangement before the trailing lambda
+        syntax*/
         modifier = modifier /*here the columb modifer is set to match the modifer sent in
         as a parameter*/
     ) {/*this makes the text go into a columb format with trailing lambda syntax used*/
@@ -90,14 +92,23 @@ fun GreetingImage(message: String, from: String,modifier: Modifier=Modifier)
 {
     val image=painterResource(R.drawable.androidparty)/*this uses the image resource uploaded
     earlier and stores it in a constant so that we can later use it*/
-    Image(
-        painter=image,
-        contentDescription = null/*this is set to null so that accessibility assistance does
+    Box(modifier)
+    {
+        Image(
+            painter = image,
+            contentDescription = null/*this is set to null so that accessibility assistance does
         not try and read out the background image*/
 
-    )
+        )
+        GreetingText(
+            message = message,
+            from = from,
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(8.dp)
+        )
 
-
+    }
 
 }
 
