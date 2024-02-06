@@ -3,6 +3,7 @@ package com.example.happybirthday
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
@@ -35,11 +36,12 @@ class MainActivity : ComponentActivity() {
 @Composable /*composable added to allow for composables like text to be added */
 fun GreetingText(message: String ,from: String,modifier: Modifier = Modifier){
 
-    Row {/*the row function with trailing lambda syntax to organise text in a row*/
+
+    Column {/*this makes the text go into a columb format with trailing lambda syntax used*/
         Text(
             /* added composable text function */
             text = message,
-            fontSize = 30.sp,
+            fontSize = 100.sp,
             /* sp here is scalable pixel means that it will work for different
                     screen resoloutions and user prefered font sizes*/
             lineHeight = 116.sp,
@@ -50,6 +52,7 @@ fun GreetingText(message: String ,from: String,modifier: Modifier = Modifier){
             text = from
         )
     }
+
 
 
 }
