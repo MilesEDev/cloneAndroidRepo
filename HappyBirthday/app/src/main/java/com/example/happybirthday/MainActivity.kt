@@ -30,9 +30,12 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GreetingText(message = "Happy Birthday Miles", from = "leeds beckett") /*added
+                    GreetingText(message = "Happy Birthday Miles", from = "leeds beckett",
+                        modifier = Modifier.padding(8.dp))
+                     /*added
                     greeting text here in on create function which is called for the device not
-                    the preview so display will now go on device.*/
+                    the preview so display will now go on device. modifier now passed in as an
+                    argument so the padding passed in here will be used in display*/
 
                 }
             }
@@ -48,10 +51,8 @@ fun GreetingText(message: String ,from: String,modifier: Modifier = Modifier){
     Column(
         verticalArrangement = Arrangement.Center,/*centers the columb on the page on the main axis
         which for columb is the y axis as columbs go up to down */
-        modifier = modifier.padding(8.dp),/* here the modifier sent into the composable function
-        will maintain its prior state however with changes to the padding which pushes elements
-        to correct position dp is used here as sp factors in prefered font size which is irrelevant
-        for padding in this case the padding is used to center the columb on the x axis*/
+        modifier = modifier /*here the columb modifer is set to match the modifer sent in
+        as a parameter*/
     ) {/*this makes the text go into a columb format with trailing lambda syntax used*/
         Text(
             /* added composable text function */
