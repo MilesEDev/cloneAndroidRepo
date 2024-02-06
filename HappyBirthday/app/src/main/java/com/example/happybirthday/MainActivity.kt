@@ -12,7 +12,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -60,9 +62,19 @@ fun GreetingText(message: String ,from: String,modifier: Modifier = Modifier){
             lineHeight = 116.sp,
             /* set to 116 so that it fills whole char size and leaves a bit
                     of white space as well between lines */
+            textAlign = TextAlign.Center/* this centers the happy birthday text inside the columb
+            that we have created*/
         )
         Text(
-            text = from
+            text = from,
+            fontSize = 36.sp,
+            modifier = modifier.padding(16.dp)/* this adds some padding
+            to add some room between the greeting and the side of the phone page*/
+            .align(alignment = Alignment.End)/*this continues the modifer edits so that the alignment
+            of the from statement is at the right hand side of the page*/
+
+
+
         )
     }
 
