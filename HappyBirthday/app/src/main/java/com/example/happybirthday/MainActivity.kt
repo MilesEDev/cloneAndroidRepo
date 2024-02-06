@@ -25,6 +25,9 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
+                    GreetingText(message = "Happy Birthday Miles", from = "leeds beckett") /*added
+                    greeting text here in on create function which is called for the device not
+                    the preview so display will now go on device.*/
 
                 }
             }
