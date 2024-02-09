@@ -1,5 +1,6 @@
 package com.example.happybirthday
 
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.foundation.Image
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -93,12 +94,17 @@ fun GreetingImage(message: String, from: String,modifier: Modifier=Modifier)
     val image=painterResource(R.drawable.androidparty)/*this uses the image resource uploaded
     earlier and stores it in a constant so that we can later use it*/
 
+
     Box(modifier)
     {
         Image(
             painter = image,
-            contentDescription = null/*this is set to null so that accessibility assistance does
+            contentDescription = null,/*this is set to null so that accessibility assistance does
         not try and read out the background image*/
+            contentScale = ContentScale.Crop /*this makes sure that the image is scaled to fit
+            the entire screen without making it look stretched*/
+
+
 
         )
         GreetingText(
