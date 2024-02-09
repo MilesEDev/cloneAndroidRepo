@@ -34,14 +34,11 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GreetingText(message = "Happy Birthday Miles", from = "leeds beckett",
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(8.dp))
-                     /*added
-                    greeting text here in on create function which is called for the device not
-                    the preview so display will now go on device. modifier now passed in as an
-                    argument so the padding passed in here will be used in display*/
+                    GreetingImage(
+                        message = "Happy Birthday Miles",
+                        from = "from beckett")
+
+
 
                 }
             }
