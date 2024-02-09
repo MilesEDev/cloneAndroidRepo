@@ -35,7 +35,9 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     GreetingText(message = "Happy Birthday Miles", from = "leeds beckett",
-                        modifier = Modifier.padding(8.dp))
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(8.dp))
                      /*added
                     greeting text here in on create function which is called for the device not
                     the preview so display will now go on device. modifier now passed in as an
@@ -74,9 +76,10 @@ fun GreetingText(message: String ,from: String,modifier: Modifier = Modifier){
         Text(
             text = from,
             fontSize = 36.sp,
-            modifier = modifier.padding(16.dp)/* this adds some padding
+            modifier = Modifier
+                .padding(16.dp)/* this adds some padding
             to add some room between the greeting and the side of the phone page*/
-            .align(alignment = Alignment.End)/*this continues the modifer edits so that the alignment
+                .align(alignment = Alignment.End)/*this continues the modifer edits so that the alignment
             of the from statement is at the right hand side of the page*/
 
 
@@ -92,6 +95,7 @@ fun GreetingImage(message: String, from: String,modifier: Modifier=Modifier)
 {
     val image=painterResource(R.drawable.androidparty)/*this uses the image resource uploaded
     earlier and stores it in a constant so that we can later use it*/
+
     Box(modifier)
     {
         Image(
@@ -107,8 +111,9 @@ fun GreetingImage(message: String, from: String,modifier: Modifier=Modifier)
                 .fillMaxSize()
                 .padding(8.dp)
         )
-
     }
+
+
 
 }
 
@@ -119,6 +124,6 @@ fun GreetingImage(message: String, from: String,modifier: Modifier=Modifier)
 @Composable
 fun GreetingPreview() {
     HappyBirthdayTheme {
-        GreetingImage(message = "Happy Birthday Miles", from = "leeds beckett")
+        GreetingImage(message = "Happy Birthday Miles", from = "from beckett")
     }
 }
