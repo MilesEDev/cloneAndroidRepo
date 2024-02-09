@@ -101,8 +101,10 @@ fun GreetingImage(message: String, from: String,modifier: Modifier=Modifier)
             painter = image,
             contentDescription = null,/*this is set to null so that accessibility assistance does
         not try and read out the background image*/
-            contentScale = ContentScale.Crop /*this makes sure that the image is scaled to fit
+            contentScale = ContentScale.Crop, /*this makes sure that the image is scaled to fit
             the entire screen without making it look stretched*/
+            alpha = 0.5F
+            /*makes the image more transparant*/
 
 
 
