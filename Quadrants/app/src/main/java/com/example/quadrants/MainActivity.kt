@@ -98,12 +98,12 @@ fun MainPage(modifier: Modifier = Modifier) {
                 .padding(16.dp))
 
             {
-                Column() {
+                Column(verticalArrangement = Arrangement.Center, modifier = Modifier.fillMaxHeight()) {
                     Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxWidth()) {
                         Text(
 
 
-                            text = "Text composable",
+                            text = "Image composable",
 
                             fontWeight = Bold,
                             textAlign = TextAlign.Center,
@@ -115,7 +115,10 @@ fun MainPage(modifier: Modifier = Modifier) {
                     Text(
 
                         text =
-                        "Displays text and follows the recommended Material Design guidelines.",
+                        "Creates a composable that lays out and draws " +
+                                "a given Painter class object.",
+
+
                         textAlign = TextAlign.Justify
                     )
                 }
@@ -146,7 +149,7 @@ fun MainPage(modifier: Modifier = Modifier) {
                         Text(
 
 
-                            text = "Text composable",
+                            text = "Row composable",
 
                             fontWeight = Bold,
                             textAlign = TextAlign.Center,
@@ -158,7 +161,7 @@ fun MainPage(modifier: Modifier = Modifier) {
                     Text(
 
                         text =
-                        "Displays text and follows the recommended Material Design guidelines.",
+                        "A layout composable that places its children in a horizontal sequence.",
                         textAlign = TextAlign.Justify
                     )
                 }
@@ -181,7 +184,7 @@ fun MainPage(modifier: Modifier = Modifier) {
                         Text(
 
 
-                            text = "Text composable",
+                            text = "Column composable",
 
                             fontWeight = Bold,
                             textAlign = TextAlign.Center,
@@ -193,7 +196,7 @@ fun MainPage(modifier: Modifier = Modifier) {
                     Text(
 
                         text =
-                        "Displays text and follows the recommended Material Design guidelines.",
+                        "A layout composable that places its children in a vertical sequence.",
                         textAlign = TextAlign.Justify
                     )
                 }
