@@ -57,7 +57,42 @@ fun MainPage(modifier: Modifier = Modifier) {
         {
             Box(contentAlignment = Alignment.Center, modifier = Modifier
                 .weight(1f)
-                .background(Color.Green)
+                .background(Color(0xFFEADDFF))
+                .fillMaxWidth()
+                .fillMaxHeight()
+                .padding(16.dp))
+
+            {
+                Column() {
+                    Box(contentAlignment = Alignment.Center,
+                        modifier = Modifier.fillMaxWidth()) {
+                        Text(
+
+
+                            text = "Text composable",
+
+                            fontWeight = Bold,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.padding(bottom = 16.dp)
+                        )
+                    }
+
+
+                    Text(
+
+                        text =
+                        "Displays text and follows the recommended Material Design guidelines.",
+                        textAlign = TextAlign.Justify
+                    )
+                }
+
+
+
+
+            }
+            Box(contentAlignment = Alignment.Center, modifier = Modifier
+                .weight(1f)
+                .background(Color(0xFFD0BCFF))
                 .fillMaxWidth()
                 .fillMaxHeight()
                 .padding(16.dp))
@@ -89,16 +124,6 @@ fun MainPage(modifier: Modifier = Modifier) {
 
 
             }
-            Box(modifier = Modifier
-                .weight(1f)
-                .background(Color.Red)
-                .fillMaxWidth()
-                .fillMaxHeight())
-            {
-
-                    Text(text = "header")
-
-            }
 
 
 
@@ -108,22 +133,74 @@ fun MainPage(modifier: Modifier = Modifier) {
             .fillMaxWidth()
             .weight(1f)
             .background(Color.Green)) {
-            Box(modifier = Modifier
+            Box(contentAlignment = Alignment.Center, modifier = Modifier
                 .weight(1f)
-                .background(Color.Blue)
+                .background(Color(0xFFB69DF8))
                 .fillMaxWidth()
-                .fillMaxHeight())
+                .fillMaxHeight()
+                .padding(16.dp))
+
             {
-                Text(text = "header")
+                Column() {
+                    Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxWidth()) {
+                        Text(
+
+
+                            text = "Text composable",
+
+                            fontWeight = Bold,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.padding(bottom = 16.dp)
+                        )
+                    }
+
+
+                    Text(
+
+                        text =
+                        "Displays text and follows the recommended Material Design guidelines.",
+                        textAlign = TextAlign.Justify
+                    )
+                }
+
+
+
+
             }
 
-            Box(modifier = Modifier
+            Box(contentAlignment = Alignment.Center, modifier = Modifier
                 .weight(1f)
-                .background(Color.LightGray)
+                .background(Color(0xFFF6EDFF))
                 .fillMaxWidth()
-                .fillMaxHeight())
+                .fillMaxHeight()
+                .padding(16.dp))
+
             {
-                Text(text = "header")
+                Column() {
+                    Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxWidth()) {
+                        Text(
+
+
+                            text = "Text composable",
+
+                            fontWeight = Bold,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.padding(bottom = 16.dp)
+                        )
+                    }
+
+
+                    Text(
+
+                        text =
+                        "Displays text and follows the recommended Material Design guidelines.",
+                        textAlign = TextAlign.Justify
+                    )
+                }
+
+
+
+
             }
         }
     }
