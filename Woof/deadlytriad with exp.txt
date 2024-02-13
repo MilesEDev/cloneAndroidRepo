@@ -1,0 +1,104 @@
+maximising negative
+
+with minimise assume start 
+
+20
+
+than we reduce to 15
+
+etc we do this by finding diff between estmation
+
+and making weights lower
+
+so we start to great and go down
+
+in mnist this would be confidence
+
+our params say 50% sure turns we should be 100% sure
+
+so we adjust our weights to get closer to 100% which minimizes the 
+differance
+
+in ascent
+
+-25
+
+than adjust to get
+
+-20
+
+and lower
+
+so desired value is 0
+
+the difference is 
+
+what if the y intercept actually needs increasing
+
+well were using diff so thats ok
+
+as long as our desired value < than our observed = descent
+
+else ascent simple as that!
+
+the desired output is NOT a neuron in traditional sense
+
+it is sigmoided however 
+
+learning rate controls the accuracy regarding this bit
+
+ok this makes sense
+
+how do we estimation rather than shooting?
+
+so lets say in MNIST we want 100% confidence 
+
+and we give 60% confidence
+
+we want the weight to be increased in this case
+
+60-100=-60 --60 = increase
+
+but than with least sqaure
+
+
+we want 0
+
+we got
+
+and here we want weight to be smaller
+
+so this makes sense because of the double minus rule
+
+with negative mse it would be
+
+desired = - remember
+
+if our observation negatived the mean sqaured error we would have
+
+-50-0 = --50--0
+
+--50--0
+
++50+0 = 50
+
+so we would be increasing our weights here so as long as your desired output
+is negative it works in this case..
+
+if I were to maximise a reward what would I do?
+
+why q learning of course!
+
+my policy network said do A my greedy policy said the correct answer is
+
+we would need to use experiance replay in this case
+
+if using td
+
+by taking max action we are evaluating greedy policy because...
+
+
+
+
+
+
