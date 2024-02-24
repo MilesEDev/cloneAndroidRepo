@@ -50,6 +50,7 @@ import com.example.woof.data.dogs
 import com.example.woof.ui.theme.WoofTheme
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.ui.Alignment
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -172,7 +173,7 @@ fun WoofTopAppBar(modifier:Modifier = Modifier)
 {
     CenterAlignedTopAppBar(
         title = {
-            Row() {
+            Row(verticalAlignment = Alignment.CenterVertically) {
                 Image(
                     modifier = Modifier
                         .size(dimensionResource(id = R.dimen.image_size))
