@@ -54,6 +54,13 @@ enum class CupcakeScreen(){
     Summary
 }
 
+private fun cancelOrderAndNavigateToStart(
+    viewModel:OrderViewModel,
+    navController: NavHostController){
+    viewModel.resetOrder()
+    navController.popBackStack(CupcakeScreen.Start.name,inclusive = false)
+}
+
 /**
  * Composable that displays the topBar and displays back button if back navigation is possible.
  */
@@ -112,7 +119,8 @@ fun CupcakeApp(
 
 
                     },
-                    modifier = Modifier.fillMaxSize()
+                    modifier = Modifier
+                        .fillMaxSize()
                         .padding(dimensionResource(id = R.dimen.padding_medium))
 
                 )
@@ -124,7 +132,9 @@ fun CupcakeApp(
                 SelectOptionScreen(
                     subtotal = uiState.price,
                     onNextButtonClicked = { navController.navigate(CupcakeScreen.Pickup.name) },
-                    onCancelButtonClicked = {},
+                    onCancelButtonClicked = {
+                        cancelOrderAndNavigateToStart(viewModel, navController)
+                    },
                     options = DataSource.flavors.map { id->context.resources.getString(id)},
                     onSelectionChanged = {viewModel.setFlavor(it)},
                     modifier = Modifier.fillMaxSize()
@@ -136,7 +146,9 @@ fun CupcakeApp(
                 SelectOptionScreen(
                     subtotal = uiState.price,
                     onNextButtonClicked={navController.navigate(CupcakeScreen.Summary.name)},
-                    onCancelButtonClicked = {},
+                    onCancelButtonClicked = {
+                        cancelOrderAndNavigateToStart(viewModel, navController)
+                    },
                     options = uiState.pickupOptions,
                     onSelectionChanged = { viewModel.setDate(it) },
                     modifier = Modifier.fillMaxHeight()
@@ -146,7 +158,9 @@ fun CupcakeApp(
             {
                 OrderSummaryScreen(
                     orderUiState = uiState,
-                    onCancelButtonClicked = {},
+                    onCancelButtonClicked = {
+                        cancelOrderAndNavigateToStart(viewModel, navController)
+                    },
                     onSendButtonClicked = {subject:String,summary: String->
 
                     },
