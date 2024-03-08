@@ -10,4 +10,21 @@ private val retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .build()
 
+object MarsAPI
+{
+
+    val retrofitService: MarsApiService by lazy{
+        retrofit.create(MarsApiService::class.java)
+    }
+
+}
+
+
+interface MarsApiService
+{
+    @GET("photos")
+    suspend fun getPhotos():String
+
+}
+
 
