@@ -23,6 +23,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import javax.sql.DataSource
+import com.example.affirmations.data.Datasource
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +38,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    MainPage()
+                    AffirmationsApp()
                 }
             }
         }
@@ -58,7 +62,9 @@ fun AffirmationsPreview() {
 @Composable
 fun AffirmationsApp()
 {
-
+    AffirmationList(
+        affirmationList = Datasource().loadAffirmations()
+    )
 }
 @Composable
 fun AffirmationCard(affirmation: Affirmation,modifier: Modifier = Modifier)
@@ -85,4 +91,25 @@ fun AffirmationCard(affirmation: Affirmation,modifier: Modifier = Modifier)
         }
     }
 
+}
+@Composable
+fun AffirmationList(affirmationList: List<Affirmation>,modifier: Modifier = Modifier)
+{
+    LazyColumn(modifier = modifier)
+    {
+        items(affirmationList)
+        {
+            affirmation->
+            AffirmationCard(
+                affirmation = affirmation,
+                modifier = Modifier.padding(8.dp)
+            )
+        }
+    }
+}
+@Preview
+@Composable
+private fun AffirmationCardPreview()
+{
+    AffirmationCard(Affirmation(R.string.affirmation1,R.drawable.image1))
 }
