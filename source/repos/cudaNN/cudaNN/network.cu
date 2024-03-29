@@ -309,13 +309,6 @@ double network::allExpOutput()
     return expOutput;
 }
 
-double network::backPropagation()
-{
-    int index = blockIdx.x * blockDim.x + threadIdx.x;
-    int stride = blockDim.x * gridDim.x;
-    
-
-}
 
 void network::calcBackDerivToCost(int layer, int weightID, int neuronPos, node* neuron)
 {
@@ -377,21 +370,52 @@ double network::getSingleDeriv(double newDeriv)
 
 void network::performWeightsandBiasUpdates()
 {
-    /*
+    
     int index = blockIdx.x * blockDim.x + threadIdx.x;
     int stride = blockDim.x * gridDim.x;
     
     for (int taskID = index; taskID < totalTaskCount; taskID = taskID + stride)
     {
+        int offset = 0; 
         for (int layer = 0; layer < totalLayers; layer++)
         {
             if (taskID < taskCount[layer])
             {
+                int localID = taskID - offset;
+                int neuron = taskID / neuronCounts[layer];
+                int weightID = taskID % neuronCounts[layer + 1];
+                node* neuronObj = networkStructure[layer][neuron];
+                if (neuron < neuronCounts[layer])
+                {
+                    neuronObj->updateWeights(1, neuronCounts[layer + 1], LEARNING_RATE);
+                }
+                else
+                {
+                    if (layer > 0)
+                    {
+                        neuronObj->updateBiases(1, LEARNING_RATE);
+                    }
+
+
+                }
 
             }
+            offset = offset + taskCount[layer];
         }
+
     }
-    */
+    
+}
+
+void network::setInputs(double* inputArr)
+{
+
+    int index = blockIdx.x * blockDim.x + threadIdx.x;
+    int stride = blockDim.x * gridDim.x;
+    for (int nodeID = index; nodeID < neuronCounts[0]; nodeID = nodeID + stride)
+    {
+        networkStructure[0][nodeID]->setActivation(inputArr[nodeID]);
+    }
 }
 
 

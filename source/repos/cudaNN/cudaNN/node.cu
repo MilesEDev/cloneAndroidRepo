@@ -92,5 +92,33 @@ void node::updateBiasUpdates(int batch,double newBias)
 	biasUpdates[batch] = newBias;
 }
 
+void node::updateWeights(int batchSize,int nextNeuronCount,double LEARNING_RATE)
+{
+	double averageWeight = 0;
+	for (int weightID = 0; weightID < nextNeuronCount; weightID = weightID + 1)
+	{
+		for (int batchID = 0; batchID < batchSize; batchID++)
+		{
+			averageWeight = averageWeight + weightUpdates[batchID][weightID];
+		}
+		averageWeight = averageWeight / batchSize;
+		double old_weight = getWeight(weightID);
+		double new_weight = old_weight - (averageWeight * LEARNING_RATE);
+		weights[weightID] = new_weight;
+	}
+}
+
+void node::updateBiases(int batchSize, double LEARNING_RATE)
+{
+	double averageBias = 0; 
+	for (int batchID = 0; batchID < batchSize; batchID++)
+	{
+		averageBias = averageBias + biasUpdates[batchID];
+	}
+	double old_bias = bias;
+	double new_bias = bias - (averageBias * LEARNING_RATE);
+	bias = new_bias;
+}
+
 
 

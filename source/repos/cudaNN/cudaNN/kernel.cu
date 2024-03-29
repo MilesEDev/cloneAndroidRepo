@@ -49,6 +49,11 @@ void displayKernelAct(network* myNetwork)
 	printf("hello world");
 	myNetwork->displayActivations();
 }
+__global__
+void setInputs(network* myNetwork,double* inputs)
+{
+	myNetwork->setInputs(inputs);
+}
 
 
 int main()
@@ -68,8 +73,12 @@ int main()
 	int total = myNetworkCPU->totalLayers;
 	lazyMemoryPopulate << <1, 1 >> > (myNetwork);
 	generateWeights << <1, 1>> > (myNetwork, time(NULL));
+	//no inputs yet muppet
+	double myList[5] = {0.54,0.32,0.23,0.74,0.82};
 
+	setInputs << <1, 1 >> > (myNetwork, &myList);
 	forwardProp << <1,1 >> > (myNetwork,0);
+	
 
 	cudaDeviceSynchronize();
 	displayKernelAct << <1, 1 >> > (myNetwork);

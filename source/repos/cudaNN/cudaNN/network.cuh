@@ -65,8 +65,7 @@ public:
     double softMaxSingle(double allExp, int numeriator);
     __device__
     double allExpOutput();
-    __host__
-    double backPropagation();
+  
     __device__
     void calcBackDerivToCost(int layer, int weightID, int neuronPos, node* neuron);
     __device__
@@ -79,6 +78,10 @@ public:
     double getSingleDeriv(double newDeriv);
 
     __device__
-     void performWeightsandBiasUpdates();
+    void performWeightsandBiasUpdates();
+
+    __device__
+    void setInputs(double* inputArr);
+
 };
 
