@@ -67,10 +67,10 @@ fun GreetingText(message: String ,from: String,modifier: Modifier = Modifier){
 
             text = message,
             fontFamily = christmas,
-            fontSize = 60.sp,
+            fontSize = 80.sp,
             /* sp here is scalable pixel means that it will work for different
                     screen resoloutions and user prefered font sizes*/
-            lineHeight = 60.sp,
+            lineHeight = 70.sp,
             /* set to 116 so that it fills whole char size and leaves a bit
                     of white space as well between lines */
             textAlign = TextAlign.Center,/* this centers the happy birthday text inside the columb
@@ -81,7 +81,7 @@ fun GreetingText(message: String ,from: String,modifier: Modifier = Modifier){
         )
         Text(
             text = from,
-            fontSize = 24.sp,
+            fontSize = 30.sp,
             fontFamily = fancy,
             modifier = Modifier
 
