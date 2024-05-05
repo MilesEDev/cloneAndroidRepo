@@ -1,7 +1,7 @@
-package com.example.marsphotos.network
+package com.example.marsphotos.model
 
-import kotlinx.serialization.Serializable
 import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 @Serializable
 data class MarsPhoto(
     val id:String,@SerialName(value = "img_src") val imgSrc:String
