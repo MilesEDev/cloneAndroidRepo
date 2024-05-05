@@ -33,7 +33,7 @@ import java.io.IOException
 
 sealed interface MarsUiState
 {
-    data class Success(val photos:String):MarsUiState
+    data class Success(val photos: MarsPhoto) : MarsUiState
     object Error:MarsUiState
     object Loading:MarsUiState
 }
@@ -60,9 +60,9 @@ class MarsViewModel(private val marsPhotosRepository: MarsPhotosRepository) : Vi
         viewModelScope.launch {
 
             marsUiState = try {
-                val result = marsPhotosRepository.getMarsPhotos()[0]
 
-                MarsUiState.Success("First Mars image URL: ${result.imgSrc}")
+
+                MarsUiState.Success(marsPhotosRepository.getMarsPhotos()[0])
             }
             catch(e:IOException)
             {
