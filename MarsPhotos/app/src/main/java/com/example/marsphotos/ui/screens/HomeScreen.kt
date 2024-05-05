@@ -19,10 +19,14 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -107,3 +111,20 @@ fun ResultScreenPreview() {
         ResultScreen(stringResource(R.string.placeholder_result))
     }
 }
+@Composable
+fun PhotosGridScreen(
+    photos: List<MarsPhoto>,
+    modifier: Modifier = Modifier,
+    contentPadding: PaddingValues = PaddingValues(0.dp),
+) {
+    LazyVerticalGrid(
+        columns = GridCells.Adaptive(150.dp),
+        modifier = modifier.padding(horizontal = 4.dp),
+        contentPadding = contentPadding,
+    ) {
+        items(items = photos, key = { photo -> photo.id }) {
+                photo -> MarsPhotoCard(photo)
+        }
+    }
+}
+
