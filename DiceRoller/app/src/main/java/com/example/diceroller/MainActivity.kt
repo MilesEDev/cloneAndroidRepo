@@ -97,17 +97,15 @@ fun DiceWithButtonAndImage(modifier: Modifier = Modifier,result: MutableState<In
                 DiceWithButtonAndImage(result = result2)
             }
         }
+        Button(onClick = { displayDouble.value = RandomRoll(result,result2)}, modifier = Modifier.align(alignment = Alignment.CenterHorizontally)) {
+            Text(stringResource(R.string.roll))
+        }
+
+        Text(text = displayDouble.value,modifier = Modifier.align(alignment = Alignment.CenterHorizontally), fontSize = 30.sp, fontWeight = FontWeight.Bold,
+            textDecoration = TextDecoration.Underline)
+
+
     }
 
 
-}
-@Preview(showBackground = true)
-@Composable
-fun DiceRollerApp() {
-    DiceRollerTheme {
-        DiceWithButtonAndImage(modifier = Modifier
-            .fillMaxSize()
-            .wrapContentSize(Alignment.Center)
-        )
-    }
 }
