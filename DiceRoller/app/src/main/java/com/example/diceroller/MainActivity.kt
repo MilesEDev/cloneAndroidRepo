@@ -4,7 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.wrapContentSize
@@ -27,6 +29,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.getValue
 
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.unit.sp
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -77,7 +82,25 @@ fun DiceWithButtonAndImage(modifier: Modifier = Modifier) {
         }
     }
 }
+@Composable fun DoubleRoll(modifier: Modifier = Modifier) {
 
+
+
+    Column(verticalArrangement = Arrangement.Center)
+    {
+        Row()
+        {
+            Column(modifier.weight(0.5f)) {
+                DiceWithButtonAndImage()
+            }
+            Column(modifier.weight(0.5f)) {
+                DiceWithButtonAndImage()
+            }
+        }
+    }
+
+
+}
 @Preview(showBackground = true)
 @Composable
 fun DiceRollerApp() {
