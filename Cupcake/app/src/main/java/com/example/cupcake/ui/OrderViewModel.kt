@@ -56,6 +56,12 @@ class OrderViewModel : ViewModel() {
         }
     }
 
+    fun setTopping(desiredTopping: String) {
+        _uiState.update { currentState ->
+            currentState.copy(topping = desiredTopping,
+                price = calculatePrice(topping = desiredTopping))
+        }
+    }
     /**
      * Set the [desiredFlavor] of cupcakes for this order's state.
      * Only 1 flavor can be selected for the whole order.
