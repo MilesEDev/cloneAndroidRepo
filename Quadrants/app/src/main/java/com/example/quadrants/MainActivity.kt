@@ -115,35 +115,42 @@ fun MainPage(modifier: Modifier = Modifier) {
                 .padding(16.dp))
 
             {
-                Column(verticalArrangement = Arrangement.Center, modifier = Modifier.fillMaxHeight()) {
-                    Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxWidth()) {
-                        val image = painterResource(R.drawable.uk)
-
-                        Image(
-                            painter = image,
-                            contentDescription = null
-                        )
-                        Text(
+                Column() {
+                    Column() {
 
 
-                            text = "Image composable",
 
-                            fontWeight = Bold,
-                            textAlign = TextAlign.Center,
-                            modifier = Modifier.padding(bottom = 16.dp)
-                        )
+                        Box(contentAlignment = Alignment.Center,
+                            modifier = Modifier.fillMaxWidth()) {
+                            val image = painterResource(R.drawable.scotland)
+
+                            Image(
+                                painter = image,
+                                contentDescription = null
+                            )
+                        }
+                        Column()
+                        {
+                            Box(
+                                contentAlignment = Alignment.Center,
+                                modifier = Modifier.fillMaxWidth()
+                            ) {
+                                Text(
+
+                                    text =
+                                    "scotland",
+                                    textAlign = TextAlign.End,
+
+
+                                    )
+                            }
+                        }
+
                     }
 
 
-                    Text(
-
-                        text =
-                        "Creates a composable that lays out and draws " +
-                                "a given Painter class object.",
 
 
-                        textAlign = TextAlign.Justify
-                    )
                 }
 
 
@@ -166,34 +173,43 @@ fun MainPage(modifier: Modifier = Modifier) {
                 .fillMaxHeight()
                 .padding(16.dp))
 
-            {
+            {  Column() {
                 Column() {
-                    Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxWidth()) {
+
+
+
+                    Box(contentAlignment = Alignment.Center,
+                        modifier = Modifier.fillMaxWidth()) {
                         val image = painterResource(R.drawable.wales)
 
                         Image(
                             painter = image,
                             contentDescription = null
                         )
-                        Text(
+                    }
+                    Column()
+                    {
+                        Box(
+                            contentAlignment = Alignment.Center,
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Text(
+
+                                text =
+                                "scotland",
+                                textAlign = TextAlign.End,
 
 
-                            text = "Row composable",
-
-                            fontWeight = Bold,
-                            textAlign = TextAlign.Center,
-                            modifier = Modifier.padding(bottom = 16.dp)
-                        )
+                                )
+                        }
                     }
 
-
-                    Text(
-
-                        text =
-                        "A layout composable that places its children in a horizontal sequence.",
-                        textAlign = TextAlign.Justify
-                    )
                 }
+
+
+
+
+            }
 
 
 
@@ -209,33 +225,42 @@ fun MainPage(modifier: Modifier = Modifier) {
 
             {
                 Column() {
-                    Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxWidth()) {
-                        val image = painterResource(R.drawable.scotland)
-
-                        Image(
-                            painter = image,
-                            contentDescription = null
-                        )
-                        Text(
+                    Column() {
 
 
-                            text = "Column composable",
 
-                            fontWeight = Bold,
-                            textAlign = TextAlign.Center,
-                            modifier = Modifier.padding(bottom = 16.dp)
-                        )
+                        Box(contentAlignment = Alignment.Center,
+                            modifier = Modifier.fillMaxWidth()) {
+                            val image = painterResource(R.drawable.uk)
+
+                            Image(
+                                painter = image,
+                                contentDescription = null
+                            )
+                        }
+                        Column()
+                        {
+                            Box(
+                                contentAlignment = Alignment.Center,
+                                modifier = Modifier.fillMaxWidth()
+                            ) {
+                                Text(
+
+                                    text =
+                                    "scotland",
+                                    textAlign = TextAlign.End,
+
+
+                                    )
+                            }
+                        }
+
                     }
 
 
-                    Text(
 
-                        text =
-                        "A layout composable that places its children in a vertical sequence.",
-                        textAlign = TextAlign.Justify
-                    )
+
                 }
-
 
 
 
