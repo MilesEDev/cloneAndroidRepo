@@ -49,115 +49,120 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-}
 
-@Composable
-fun MainPage(modifier: Modifier = Modifier) {
 
-}
+    @Composable
+    fun MainPage(modifier: Modifier = Modifier) {
 
-@Preview(showBackground = true,
-    showSystemUi = true,
-    name = "My Preview")
-@Composable
-fun AffirmationsPreview() {
-    AffirmationsTheme {
-        MainPage()
     }
-}
-@Composable
-fun AffirmationsApp()
-{
-    AffirmationList(
-        affirmationList = Datasource().loadAffirmations()
+
+    @Preview(
+        showBackground = true,
+        showSystemUi = true,
+        name = "My Preview"
     )
-}
-fun changeShowVar(showPop: Boolean): Boolean {
-    if (showPop == true) {
-        return false;
-    } else {
-        return true;
+    @Composable
+    fun AffirmationsPreview() {
+        AffirmationsTheme {
+            MainPage()
+        }
     }
 
+    @Composable
+    fun AffirmationsApp() {
+        AffirmationList(
+            affirmationList = Datasource().loadAffirmations()
+        )
+    }
 
-}
-@Composable
-fun PopUp(
-    affirmation: Affirmation,
-    modifier: Modifier = Modifier,
-    showPop: MutableState<Boolean>
-) {
-    val text = stringResource(affirmation.stringResourceID)
-    val duration = Toast.LENGTH_SHORT
-
-    val toast = Toast.makeText(this, text, duration) // in Activity
-
-    ShowBasic(affirmation, modifier, showPop)
-    toast.show()
-
-}
-
-@Composable
-@OptIn(ExperimentalMaterial3Api::class)
-fun ShowBasic(
-    affirmation: Affirmation,
-    modifier: Modifier = Modifier,
-    showPop: MutableState<Boolean>
-) {
-
-    Card(modifier = modifier, onClick = { showPop.value = changeShowVar(showPop.value) })
-    {
-        Column {
-            Image(
-                painter = painterResource(affirmation.imageResourceID),
-                contentDescription = stringResource(affirmation.stringResourceID),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(194.dp),
-                contentScale = ContentScale.Crop
-
-
-            )
-            Text(
-                text = LocalContext.current.getString(affirmation.stringResourceID),
-                modifier = Modifier.padding(15.dp),
-                style = MaterialTheme.typography.headlineSmall
-            )
-
+    fun changeShowVar(showPop: Boolean): Boolean {
+        if (showPop == true) {
+            return false;
+        } else {
+            return true;
         }
 
+
     }
 
+    @Composable
+    fun PopUp(
+        affirmation: Affirmation,
+        modifier: Modifier = Modifier,
+        showPop: MutableState<Boolean>
+    ) {
+        val text = stringResource(affirmation.stringResourceID)
+        val duration = Toast.LENGTH_SHORT
 
-}
-@Composable
-fun AffirmationCard(affirmation: Affirmation, modifier: Modifier = Modifier) {
-    val showPop = remember { mutableStateOf(false) }
-    if (showPop.value == true) {
-        PopUp(affirmation, modifier, showPop)
-    } else {
-        ShowBasic(affirmation = affirmation, modifier, showPop)
+        val toast = Toast.makeText(this, text, duration) // in Activity
+
+        ShowBasic(affirmation, modifier, showPop)
+        toast.show()
+
     }
 
-}
-@Composable
-fun AffirmationList(affirmationList: List<Affirmation>,modifier: Modifier = Modifier)
-{
-    LazyColumn(modifier = modifier)
-    {
-        items(affirmationList)
+    @Composable
+    @OptIn(ExperimentalMaterial3Api::class)
+    fun ShowBasic(
+        affirmation: Affirmation,
+        modifier: Modifier = Modifier,
+        showPop: MutableState<Boolean>
+    ) {
+
+        Card(modifier = modifier, onClick = { showPop.value = changeShowVar(showPop.value) })
         {
-            affirmation->
-            AffirmationCard(
-                affirmation = affirmation,
-                modifier = Modifier.padding(8.dp)
-            )
+            Column {
+                Image(
+                    painter = painterResource(affirmation.imageResourceID),
+                    contentDescription = stringResource(affirmation.stringResourceID),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(194.dp),
+                    contentScale = ContentScale.Crop
+
+
+                )
+                Text(
+                    text = LocalContext.current.getString(affirmation.stringResourceID),
+                    modifier = Modifier.padding(15.dp),
+                    style = MaterialTheme.typography.headlineSmall
+                )
+
+            }
+
+        }
+
+
+    }
+
+    @Composable
+    fun AffirmationCard(affirmation: Affirmation, modifier: Modifier = Modifier) {
+        val showPop = remember { mutableStateOf(false) }
+        if (showPop.value == true) {
+            PopUp(affirmation, modifier, showPop)
+        } else {
+            ShowBasic(affirmation = affirmation, modifier, showPop)
+        }
+
+    }
+
+    @Composable
+    fun AffirmationList(affirmationList: List<Affirmation>, modifier: Modifier = Modifier) {
+        LazyColumn(modifier = modifier)
+        {
+            items(affirmationList)
+            { affirmation ->
+                AffirmationCard(
+                    affirmation = affirmation,
+                    modifier = Modifier.padding(8.dp)
+                )
+            }
         }
     }
-}
-@Preview
-@Composable
-private fun AffirmationCardPreview()
-{
-    AffirmationCard(Affirmation(R.string.affirmation1,R.drawable.image1))
+
+    @Preview
+    @Composable
+    private fun AffirmationCardPreview() {
+        AffirmationCard(Affirmation(R.string.affirmation1, R.drawable.image1))
+    }
 }
