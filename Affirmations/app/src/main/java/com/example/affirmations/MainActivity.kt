@@ -25,6 +25,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import javax.sql.DataSource
@@ -67,6 +68,47 @@ fun AffirmationsApp()
     AffirmationList(
         affirmationList = Datasource().loadAffirmations()
     )
+}
+
+@Composable
+fun PopUp(
+    affirmation: Affirmation,
+    modifier: Modifier = Modifier,
+    showPop: MutableState<Boolean>
+) {
+    val text = stringResource(affirmation.stringResourceID)
+}
+
+fun ShowBasic(
+    affirmation: Affirmation,
+    modifier: Modifier = Modifier,
+    showPop: MutableState<Boolean>
+) {
+
+    Card(modifier = modifier, onClick = { showPop.value = changeShowVar(showPop.value) })
+    {
+        Column {
+            Image(
+                painter = painterResource(affirmation.imageResourceID),
+                contentDescription = stringResource(affirmation.stringResourceID),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(194.dp),
+                contentScale = ContentScale.Crop
+
+
+            )
+            Text(
+                text = LocalContext.current.getString(affirmation.stringResourceID),
+                modifier = Modifier.padding(15.dp),
+                style = MaterialTheme.typography.headlineSmall
+            )
+
+        }
+
+    }
+
+
 }
 @Composable
 fun AffirmationCard((affirmation: Affirmation, modifier: Modifier = Modifier)
