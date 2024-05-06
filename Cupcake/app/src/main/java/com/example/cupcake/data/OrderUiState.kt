@@ -28,6 +28,8 @@ data class OrderUiState(
     val date: String = "",
     /** Total price for the order */
     val price: String = "",
+
+    val topping: String = "",
     /** Available pickup dates for the order*/
     val pickupOptions: List<String> = listOf()
 )
