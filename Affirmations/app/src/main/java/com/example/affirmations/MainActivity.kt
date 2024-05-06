@@ -95,11 +95,13 @@ class MainActivity : ComponentActivity() {
         val duration = Toast.LENGTH_SHORT
 
         val toast = Toast.makeText(this, text, duration) // in Activity
-
-        ShowBasic(affirmation, modifier, showPop)
-        toast.show()
-
+        Dialog(onDismissRequest = {})
+        {
+            ShowBasic(affirmation, modifier, showPop)
+            toast.show()
+        }
     }
+
 
     @Composable
     @OptIn(ExperimentalMaterial3Api::class)
