@@ -92,7 +92,7 @@ fun GreetingText(message: String ,from: String,modifier: Modifier = Modifier){
 @Composable
 fun GreetingImage(message: String, from: String,modifier: Modifier=Modifier)
 {
-    val image=painterResource(R.drawable.androidparty)/*this uses the image resource uploaded
+    val image=painterResource(R.drawable.background)/*this uses the image resource uploaded
     earlier and stores it in a constant so that we can later use it*/
 
 
