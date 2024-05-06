@@ -56,8 +56,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun DiceWithButtonAndImage(modifier: Modifier = Modifier) {
 
-    var result by remember{mutableStateOf(1)} /* this makes sure that if the value of result
-    changes it will maintain the value even if the composable is refreshed*/
+
     val imageResource = when (result) {
         1 -> R.drawable.dice_1
         2 -> R.drawable.dice_2
@@ -86,6 +85,9 @@ fun DiceWithButtonAndImage(modifier: Modifier = Modifier) {
 
 
 
+    val displayDouble = remember { mutableStateOf("") }
+    val result = remember { mutableStateOf(1) }
+    val result2 = remember { mutableStateOf(1) }
     Column(verticalArrangement = Arrangement.Center)
     {
         Row()
