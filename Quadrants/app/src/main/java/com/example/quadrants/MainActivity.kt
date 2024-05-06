@@ -66,32 +66,41 @@ fun MainPage(modifier: Modifier = Modifier) {
 
             {
                 Column() {
-                    Box(contentAlignment = Alignment.Center,
-                        modifier = Modifier.fillMaxWidth()) {
-                        val image = painterResource(R.drawable.eng)
-
-                        Image(
-                            painter = image,
-                            contentDescription = null
-                        )
-                        Text(
+                    Column() {
 
 
-                            text = "Text composable",
 
-                            fontWeight = Bold,
-                            textAlign = TextAlign.Center,
-                            modifier = Modifier.padding(bottom = 16.dp)
-                        )
+                        Box(contentAlignment = Alignment.Center,
+                            modifier = Modifier.fillMaxWidth()) {
+                            val image = painterResource(R.drawable.eng)
+
+                            Image(
+                                painter = image,
+                                contentDescription = null
+                            )
+                        }
+                        Column()
+                        {
+                            Box(
+                                contentAlignment = Alignment.Center,
+                                modifier = Modifier.fillMaxWidth()
+                            ) {
+                                Text(
+
+                                    text =
+                                    "england",
+                                    textAlign = TextAlign.End,
+
+
+                                    )
+                            }
+                        }
+
                     }
 
 
-                    Text(
 
-                        text =
-                        "Displays text and follows the recommended Material Design guidelines.",
-                        textAlign = TextAlign.Justify
-                    )
+
                 }
 
 
