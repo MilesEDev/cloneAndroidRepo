@@ -25,6 +25,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -70,7 +71,15 @@ fun AffirmationsApp()
         affirmationList = Datasource().loadAffirmations()
     )
 }
+fun changeShowVar(showPop: Boolean): Boolean {
+    if (showPop == true) {
+        return false;
+    } else {
+        return true;
+    }
 
+
+}
 @Composable
 fun PopUp(
     affirmation: Affirmation,
@@ -85,6 +94,8 @@ fun PopUp(
     }
 }
 
+@Composable
+@OptIn(ExperimentalMaterial3Api::class)
 fun ShowBasic(
     affirmation: Affirmation,
     modifier: Modifier = Modifier,
