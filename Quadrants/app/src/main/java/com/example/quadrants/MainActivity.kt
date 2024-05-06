@@ -3,6 +3,7 @@ package com.example.quadrants
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -19,6 +20,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.text.style.TextAlign
@@ -66,6 +68,12 @@ fun MainPage(modifier: Modifier = Modifier) {
                 Column() {
                     Box(contentAlignment = Alignment.Center,
                         modifier = Modifier.fillMaxWidth()) {
+                        val image = painterResource(R.drawable.eng)
+
+                        Image(
+                            painter = image,
+                            contentDescription = null
+                        )
                         Text(
 
 
@@ -100,6 +108,12 @@ fun MainPage(modifier: Modifier = Modifier) {
             {
                 Column(verticalArrangement = Arrangement.Center, modifier = Modifier.fillMaxHeight()) {
                     Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxWidth()) {
+                        val image = painterResource(R.drawable.uk)
+
+                        Image(
+                            painter = image,
+                            contentDescription = null
+                        )
                         Text(
 
 
@@ -146,6 +160,12 @@ fun MainPage(modifier: Modifier = Modifier) {
             {
                 Column() {
                     Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxWidth()) {
+                        val image = painterResource(R.drawable.wales)
+
+                        Image(
+                            painter = image,
+                            contentDescription = null
+                        )
                         Text(
 
 
@@ -181,6 +201,12 @@ fun MainPage(modifier: Modifier = Modifier) {
             {
                 Column() {
                     Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxWidth()) {
+                        val image = painterResource(R.drawable.scotland)
+
+                        Image(
+                            painter = image,
+                            contentDescription = null
+                        )
                         Text(
 
 
