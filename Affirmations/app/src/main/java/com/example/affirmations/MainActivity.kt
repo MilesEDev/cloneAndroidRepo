@@ -1,6 +1,7 @@
 package com.example.affirmations
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -87,11 +88,13 @@ fun PopUp(
     showPop: MutableState<Boolean>
 ) {
     val text = stringResource(affirmation.stringResourceID)
-    Dialog(onDismissRequest = {})
-    {
-        ShowBasic(affirmation, modifier, showPop)
+    val duration = Toast.LENGTH_SHORT
 
-    }
+    val toast = Toast.makeText(this, text, duration) // in Activity
+
+    ShowBasic(affirmation, modifier, showPop)
+    toast.show()
+
 }
 
 @Composable
