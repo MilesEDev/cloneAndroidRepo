@@ -44,10 +44,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    DoubleRoll(modifier = Modifier
-                        .fillMaxSize()
-                        .wrapContentSize(Alignment.Center)
-                    )
+                    DoubleRoll()
+
                 }
             }
         }
@@ -79,8 +77,20 @@ fun DiceWithButtonAndImage(modifier: Modifier = Modifier,result: MutableState<In
 
     }
 }
+fun RandomRoll(result: MutableState<Int>,result2: MutableState<Int>): String
+{
+    result.value = (1..6).random()
+    result2.value = (1..6).random()
+    if(result.value == result2.value)
+    {
+        return "you rolled a double ${result2.value}"
+    }
+    else
+    {
+        return ""
+    }
+}
 @Composable fun DoubleRoll(modifier: Modifier = Modifier) {
-
 
 
     val displayDouble = remember { mutableStateOf("") }
@@ -97,6 +107,7 @@ fun DiceWithButtonAndImage(modifier: Modifier = Modifier,result: MutableState<In
                 DiceWithButtonAndImage(result = result2)
             }
         }
+
         Button(onClick = { displayDouble.value = RandomRoll(result,result2)}, modifier = Modifier.align(alignment = Alignment.CenterHorizontally)) {
             Text(stringResource(R.string.roll))
         }
@@ -106,6 +117,4 @@ fun DiceWithButtonAndImage(modifier: Modifier = Modifier,result: MutableState<In
 
 
     }
-
-
 }
