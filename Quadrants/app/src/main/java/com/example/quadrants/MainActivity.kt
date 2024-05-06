@@ -90,6 +90,7 @@ fun MainPage(modifier: Modifier = Modifier) {
                                     text =
                                     "england",
                                     textAlign = TextAlign.End,
+                                    fontSize=30.sp
 
 
                                     )
@@ -140,6 +141,7 @@ fun MainPage(modifier: Modifier = Modifier) {
                                     text =
                                     "scotland",
                                     textAlign = TextAlign.End,
+                                    fontSize=30.sp
 
 
                                     )
@@ -196,8 +198,9 @@ fun MainPage(modifier: Modifier = Modifier) {
                             Text(
 
                                 text =
-                                "scotland",
+                                "Wales",
                                 textAlign = TextAlign.End,
+                                fontSize=30.sp
 
 
                                 )
@@ -247,8 +250,9 @@ fun MainPage(modifier: Modifier = Modifier) {
                                 Text(
 
                                     text =
-                                    "scotland",
-                                    textAlign = TextAlign.End,
+                                    "UK",
+                                    textAlign =TextAlign.End,
+                                    fontSize=30.sp
 
 
                                     )
