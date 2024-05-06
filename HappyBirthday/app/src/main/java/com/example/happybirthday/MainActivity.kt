@@ -25,6 +25,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.happybirthday.ui.theme.HappyBirthdayTheme
+import com.example.happybirthday.ui.theme.christmas
+import com.example.happybirthday.ui.theme.fancy
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,6 +66,7 @@ fun GreetingText(message: String ,from: String,modifier: Modifier = Modifier){
             /* added composable text function */
             text = message,
             fontSize = 80.sp,
+            fontFamily = christmas,
             /* sp here is scalable pixel means that it will work for different
                     screen resoloutions and user prefered font sizes*/
             lineHeight = 70.sp,
@@ -76,7 +79,8 @@ fun GreetingText(message: String ,from: String,modifier: Modifier = Modifier){
         )
         Text(
             text = from,
-            fontSize = 25.sp,
+            fontSize = 30.sp,
+            fontFamily = fancy,
             modifier = Modifier
 
                 .padding(16.dp)/* this adds some padding
