@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.dp
 import com.example.diceroller.ui.theme.DiceRollerTheme
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.getValue
@@ -54,10 +55,10 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun DiceWithButtonAndImage(modifier: Modifier = Modifier) {
+fun DiceWithButtonAndImage(modifier: Modifier = Modifier,result: MutableState<Int>) {
 
 
-    val imageResource = when (result) {
+    val imageResource = when (result.value) {
         1 -> R.drawable.dice_1
         2 -> R.drawable.dice_2
         3 -> R.drawable.dice_3
@@ -68,17 +69,14 @@ fun DiceWithButtonAndImage(modifier: Modifier = Modifier) {
     Column(
         modifier=modifier,
         horizontalAlignment = Alignment.CenterHorizontally
-    ){
+    ) {
         Image(
             painter = painterResource(imageResource),
             contentDescription = result.toString()
 
         )
-        Spacer(modifier = Modifier.height(16.dp))
-        Button(onClick = {result = (1..6).random() }){
-            Text(stringResource(R.string.roll))
 
-        }
+
     }
 }
 @Composable fun DoubleRoll(modifier: Modifier = Modifier) {
@@ -93,10 +91,10 @@ fun DiceWithButtonAndImage(modifier: Modifier = Modifier) {
         Row()
         {
             Column(modifier.weight(0.5f)) {
-                DiceWithButtonAndImage()
+                DiceWithButtonAndImage(result = result)
             }
             Column(modifier.weight(0.5f)) {
-                DiceWithButtonAndImage()
+                DiceWithButtonAndImage(result = result2)
             }
         }
     }
