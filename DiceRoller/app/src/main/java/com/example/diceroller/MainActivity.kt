@@ -43,7 +43,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    DiceWithButtonAndImage(modifier = Modifier
+                    DoubleRoll(modifier = Modifier
                         .fillMaxSize()
                         .wrapContentSize(Alignment.Center)
                     )
