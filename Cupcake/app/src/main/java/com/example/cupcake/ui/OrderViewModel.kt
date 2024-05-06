@@ -96,9 +96,19 @@ class OrderViewModel : ViewModel() {
      */
     private fun calculatePrice(
         quantity: Int = _uiState.value.quantity,
-        pickupDate: String = _uiState.value.date
+        pickupDate: String = _uiState.value.date,
+        topping:String = _uiState.value.topping
     ): String {
-        var calculatedPrice = quantity * PRICE_PER_CUPCAKE
+        var extraPrice:Double = 0.0
+        if(topping == "cherry 0.30 per cupcake" || topping == "powdered sugar 0.30 per cupcake")
+        {
+            extraPrice+=0.30
+        }
+        else if(topping == "sprinkles 0.50 per cupcake")
+        {
+            extraPrice+=0.50
+        }
+        var calculatedPrice = quantity * (PRICE_PER_CUPCAKE+extraPrice)
         // If the user selected the first option (today) for pickup, add the surcharge
         if (pickupOptions()[0] == pickupDate) {
             calculatedPrice += PRICE_FOR_SAME_DAY_PICKUP
