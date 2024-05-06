@@ -28,6 +28,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.window.Dialog
 import javax.sql.DataSource
 import com.example.affirmations.data.Datasource
 
@@ -77,6 +78,11 @@ fun PopUp(
     showPop: MutableState<Boolean>
 ) {
     val text = stringResource(affirmation.stringResourceID)
+    Dialog(onDismissRequest = {})
+    {
+        ShowBasic(affirmation, modifier, showPop)
+
+    }
 }
 
 fun ShowBasic(
@@ -111,16 +117,15 @@ fun ShowBasic(
 
 }
 @Composable
-fun AffirmationCard((affirmation: Affirmation, modifier: Modifier = Modifier)
-{
+fun AffirmationCard(affirmation: Affirmation, modifier: Modifier = Modifier) {
     val showPop = remember { mutableStateOf(false) }
     if (showPop.value == true) {
-        PopUp()
+        PopUp(affirmation, modifier, showPop)
     } else {
-        ShowBasic()
+        ShowBasic(affirmation = affirmation, modifier, showPop)
     }
-}
 
+}
 @Composable
 fun AffirmationList(affirmationList: List<Affirmation>,modifier: Modifier = Modifier)
 {
