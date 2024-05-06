@@ -54,7 +54,7 @@ fun GreetingText(message: String ,from: String,modifier: Modifier = Modifier){
 
 
     Column(
-        verticalArrangement = Arrangement.Center,/*centers the columb on the vertical accsess
+        verticalArrangement = Arrangement.Bottom,/*centers the columb on the vertical accsess
         as it is changing the function parameter vertical arrangement before the trailing lambda
         syntax*/
         modifier = modifier /*here the columb modifer is set to match the modifer sent in
@@ -69,16 +69,19 @@ fun GreetingText(message: String ,from: String,modifier: Modifier = Modifier){
             lineHeight = 70.sp,
             /* set to 116 so that it fills whole char size and leaves a bit
                     of white space as well between lines */
-            textAlign = TextAlign.Center/* this centers the happy birthday text inside the columb
+            textAlign = TextAlign.Center,/* this centers the happy birthday text inside the columb
             that we have created*/
+            modifier = Modifier.padding(10.0.dp,0.dp,10.0.dp,10.dp)
+                .align(alignment = Alignment.CenterHorizontally)
         )
         Text(
             text = from,
-            fontSize = 30.sp,
+            fontSize = 25.sp,
             modifier = Modifier
+
                 .padding(16.dp)/* this adds some padding
             to add some room between the greeting and the side of the phone page*/
-                .align(alignment = Alignment.End)/*this continues the modifer edits so that the alignment
+                .align(alignment = Alignment.CenterHorizontally)/*this continues the modifer edits so that the alignment
             of the from statement is at the right hand side of the page*/
 
 
