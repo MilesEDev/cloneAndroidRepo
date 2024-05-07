@@ -44,6 +44,26 @@ class DessertViewModel: ViewModel() {
         }
 
     }
+
+    fun determineDessertToShow(
+        desserts: List<Dessert>,
+
+        ): Dessert {
+        var dessertToShow = desserts.first()
+        for (dessert in desserts) {
+            if (_uiState.value.dessertsSold >= dessert.startProductionAmount) {
+                dessertToShow = dessert
+            } else {
+                // The list of desserts is sorted by startProductionAmount. As you sell more desserts,
+                // you'll start producing more expensive desserts as determined by startProductionAmount
+                // We know to break as soon as we see a dessert who's "startProductionAmount" is greater
+                // than the amount sold.
+                break
+            }
+        }
+
+        return dessertToShow
+    }
     fun clickEvent(desserts: List<Dessert>)
     {
         var rev = _uiState.value.revenue

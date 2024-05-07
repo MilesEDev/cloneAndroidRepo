@@ -190,15 +190,7 @@ private fun DessertClickerApp(
             dessertsSold = uiState.dessertsSold,
             dessertImageId = uiState.currentDessertImageId,
             onDessertClicked = {
-
-                // Update the revenue
-                revenue += currentDessertPrice
-                dessertsSold++
-
-                // Show the next dessert
-                val dessertToShow = determineDessertToShow(desserts, dessertsSold)
-                currentDessertImageId = dessertToShow.imageId
-                currentDessertPrice = dessertToShow.price
+                viewMod.clickEvent(desserts)
             },
             modifier = Modifier.padding(contentPadding)
         )
