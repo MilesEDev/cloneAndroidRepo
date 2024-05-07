@@ -47,12 +47,12 @@ val Typography = Typography( /*android scales a default font of roboto towards d
 e.g labels are one size headers are another*/
 
     displayLarge = TextStyle(
-        fontFamily = AbrilFatface,
+        fontFamily = frederick,
         fontWeight = FontWeight.Normal,
         fontSize = 36.sp
     ),
     displayMedium = TextStyle(
-        fontFamily = Montserrat,
+        fontFamily = shadows,
         fontWeight = FontWeight.Bold,
         fontSize = 20.sp
     ),
@@ -62,7 +62,7 @@ e.g labels are one size headers are another*/
         fontSize = 14.sp
     ),
     bodyLarge = TextStyle(
-        fontFamily = Montserrat,
+        fontFamily = yellow,
         fontWeight = FontWeight.Normal,
         fontSize = 14.sp
     )
