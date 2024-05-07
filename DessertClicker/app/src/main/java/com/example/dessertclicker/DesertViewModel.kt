@@ -7,9 +7,11 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
 import com.example.dessertclicker.data.DessertData
+import com.example.dessertclicker.model.Dessert
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 
 class DessertViewModel: ViewModel() {
 
@@ -41,6 +43,29 @@ class DessertViewModel: ViewModel() {
             ).show()
         }
 
+    }
+    fun clickEvent(desserts: List<Dessert>)
+    {
+        var rev = _uiState.value.revenue
+        var desprice = _uiState.value.currentDessertPrice
+        var desSold = _uiState.value.dessertsSold
+
+        _uiState.update { currentState ->
+            currentState.copy(
+                // Update the revenue
+                revenue = rev + desprice ,
+                dessertsSold = desSold+1
+            )
+        }
+        // Show the next dessert
+        val dessertToShow = determineDessertToShow(desserts)
+        _uiState.update { currentState ->
+            currentState.copy(
+                // Update the revenue
+                currentDessertImageId = dessertToShow.imageId,
+                currentDessertPrice = dessertToShow.price
+            )
+        }
     }
 
 }
