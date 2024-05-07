@@ -176,11 +176,8 @@ private fun DessertClickerApp(
             val intentContext = LocalContext.current
             DessertClickerAppBar(
                 onShareButtonClicked = {
-                    shareSoldDessertsInformation(
-                        intentContext = intentContext,
-                        dessertsSold = dessertsSold,
-                        revenue = revenue
-                    )
+                    viewMod.shareSoldDessertsInformation(
+                        intentContext = intentContext)
                 },
                 modifier = Modifier
                     .fillMaxWidth()
