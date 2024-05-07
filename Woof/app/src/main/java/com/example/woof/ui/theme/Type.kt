@@ -31,7 +31,18 @@ val Montserrat = FontFamily(
     Font(R.font.montserrat_bold, FontWeight.Bold)
 )
 // Set of Material typography styles to start with
+val frederick = FontFamily(
+    Font(R.font.frederickathegreat_regular),
 
+    )
+val shadows= FontFamily(
+    Font(R.font.shadowsintolight_regular),
+
+    )
+val yellow= FontFamily(
+    Font(R.font.yellowtail_regular),
+
+    )
 val Typography = Typography( /*android scales a default font of roboto towards different types of text
 e.g labels are one size headers are another*/
 
