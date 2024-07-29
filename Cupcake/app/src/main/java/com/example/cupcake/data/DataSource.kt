@@ -25,7 +25,13 @@ object DataSource {
         R.string.salted_caramel,
         R.string.coffee
     )
+    val toppings = listOf(
+        R.string.plain,
+        R.string.Cherry,
+        R.string.PowderedSugar,
+        R.string.Sprinkles
 
+    )
     val quantityOptions = listOf(
         Pair(R.string.one_cupcake, 1),
         Pair(R.string.six_cupcakes, 6),

@@ -1,0 +1,36 @@
+divergance with old policy
+
+with q learning we diverge because we constantly bootstrap to a 
+state that we have no visisted this than gets updated to a state which
+than upates approximator end result two states similar values = infinite
+loop of divergance
+
+with normal off policy no replay
+
+to begin with we would always go left so the approximator now values
+states by if we go left
+
+lets say a robots action was to lift a finger 2cm up this would have
+close to 0 consequence on the value function
+
+this means that the deadly triad problem would still occur even if using monte carl
+
+
+assuming a reward diff of something minicule like 0.0000001
+
+you could still diverge
+
+mc means no bias so actually no divergance here with mc
+
+what if we were on policy greedy
+
+than if we try and diverge our reward bounds us down
+
+
+
+
+
+
+
+
+

@@ -16,7 +16,60 @@
 package com.example.woof.ui.theme
 
 import androidx.compose.material3.Typography
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
+import com.example.woof.R
 
-// Set of Material typography styles to start with
-val Typography = Typography(
+val AbrilFatface = FontFamily(
+    Font(R.font.abril_fatface_regular)
 )
+val Montserrat = FontFamily(
+    Font(R.font.montserrat_regular),
+    Font(R.font.montserrat_bold, FontWeight.Bold)
+)
+// Set of Material typography styles to start with
+val frederick = FontFamily(
+    Font(R.font.frederickathegreat_regular),
+
+    )
+val shadows= FontFamily(
+    Font(R.font.shadowsintolight_regular),
+
+    )
+val yellow= FontFamily(
+    Font(R.font.yellowtail_regular),
+
+    )
+val Typography = Typography( /*android scales a default font of roboto towards different types of text
+e.g labels are one size headers are another*/
+
+    displayLarge = TextStyle(
+        fontFamily = frederick,
+        fontWeight = FontWeight.Normal,
+        fontSize = 36.sp
+    ),
+    displayMedium = TextStyle(
+        fontFamily = shadows,
+        fontWeight = FontWeight.Bold,
+        fontSize = 20.sp
+    ),
+    labelSmall = TextStyle(
+        fontFamily = Montserrat,
+        fontWeight = FontWeight.Bold,
+        fontSize = 14.sp
+    ),
+    bodyLarge = TextStyle(
+        fontFamily = yellow,
+        fontWeight = FontWeight.Normal,
+        fontSize = 14.sp
+    )
+
+
+
+
+
+    )
+
