@@ -47,6 +47,8 @@ import com.example.cupcake.ui.components.FormattedPriceLabel
 @Composable
 fun OrderSummaryScreen(
     orderUiState: OrderUiState,
+    onCancelButtonClicked: () -> Unit,
+    onSendButtonClicked:(String,String)->Unit,
     modifier: Modifier = Modifier
 ){
     val resources = LocalContext.current.resources
@@ -61,6 +63,7 @@ fun OrderSummaryScreen(
         R.string.order_details,
         numberOfCupcakes,
         orderUiState.flavor,
+        orderUiState.topping,
         orderUiState.date,
         orderUiState.quantity
     )
@@ -71,8 +74,12 @@ fun OrderSummaryScreen(
         Pair(stringResource(R.string.quantity), numberOfCupcakes),
         // Summary line 2: display selected flavor
         Pair(stringResource(R.string.flavor), orderUiState.flavor),
+
+        Pair(stringResource(R.string.topping), orderUiState.topping),
         // Summary line 3: display selected pickup date
         Pair(stringResource(R.string.pickup_date), orderUiState.date)
+
+
     )
 
     Column(
@@ -104,13 +111,14 @@ fun OrderSummaryScreen(
             ) {
                 Button(
                     modifier = Modifier.fillMaxWidth(),
-                    onClick = {}
+                    onClick = {onSendButtonClicked(newOrder,orderSummary)}
+
                 ) {
                     Text(stringResource(R.string.send))
                 }
                 OutlinedButton(
                     modifier = Modifier.fillMaxWidth(),
-                    onClick = {}
+                    onClick = onCancelButtonClicked
                 ) {
                     Text(stringResource(R.string.cancel))
                 }
@@ -124,6 +132,8 @@ fun OrderSummaryScreen(
 fun OrderSummaryPreview(){
     OrderSummaryScreen(
         orderUiState = OrderUiState(0, "Test", "Test", "$300.00"),
+        onSendButtonClicked = { subject: String, summary: String -> },
+        onCancelButtonClicked = {},
         modifier = Modifier.fillMaxHeight()
     )
 }
